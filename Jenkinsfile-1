@@ -1,17 +1,12 @@
 pipeline {
-  agent any
-  tools {
-    docker
-} 
+  agent {
     docker {
       image 'node:16-alpine' 
-    
+      args '--privileged'
     }
   }
   stages {
     stage('Test') {
-      steps {
-        sh 'node --version'
       }
     }
   }
